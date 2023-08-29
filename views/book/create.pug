@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+    h1 Create book
+    form(action="/book/create", method="post", enctype="multipart/form-data")
+        div 
+            |Title 
+            input(name="title")
+        div
+            |Price 
+            input(name="price")
+        div
+            |Image 
+            input(type="file", name = "image")
+        div 
+            input(type="submit", value="Create")

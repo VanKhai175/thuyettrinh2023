@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    h3
+        a(href="/book/create/") Create New
+    div
+        form(action="/book/search", method="get")
+            label Title
+            input(name="title")
+            input(type="submit", value="Search")
+
+    h1 Book List
+    table
+        thead
+            tr
+                th Id
+                th Title
+                th Price
+                th Image
+                th Actions
+        tbody
+            if books != null
+                each item in books
+                    tr
+                        td= item._id
+                        td= item.title
+                        td= item.price
+                        td= item.image
+                        td
+                            a(href=`/book/update/${item._id}`) Update
+            else
+                tr
+                    td(colspan='5') No data
